@@ -1,19 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html>
-  <head>
-    <meta charset="utf-8">
-    
-    <!-- Always force latest IE rendering engine or request Chrome Frame -->
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    
-    <!-- Use title if it's in the page YAML frontmatter -->
-    <title><%= page_title %></title>
-    
-    <%= stylesheet_link_tag "normalize" %>
-    <%= javascript_include_tag  "all" %>
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <title><%= page_title %></title>
+  <%= page_description %>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <%= stylesheet_link_tag 'application' %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <%= yield_content :head %>
+  <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="<%= page_classes %>">
+<!-- 
+  Using container-fluid in case you'd like to style the background of the 
+  container that is full-width containing an element. Just as necessary
+  to your project. 
+-->
   
-  <body class="<%= page_classes %>">
-    <%= yield %>
-  </body>
+  <div class="container-fluid">
+    <header>
+      <div class="container">
+        <%= partial "layouts/shared/primary-nav" %>
+      </div>
+    </header>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container">
+      <%= yield :layout %>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <footer>
+      <div class="container">
+        <hr>
+        <%= partial "layouts/shared/footer-nav" %>
+        <p class="text-footer">&copy;<%= Date.today.year %>. <%= data.config.title %></p>
+        <p class="text-footer">Powered by <%= link_to "Ethos", "https://github.com/timknight/middleman-ethos" %></p>
+      </div>
+    </footer>
+  </div>
+
+  <%= javascript_include_tag 'application' %>
+  <%= yield_content :bottom %>
+</body>
 </html>
