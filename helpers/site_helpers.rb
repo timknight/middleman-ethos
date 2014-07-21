@@ -11,11 +11,7 @@ module SiteHelpers
   end
 
   def page_title
-    if data.page.title
-      "#{data.page.title} - #{data.config.title}"
-    else
-      data.config.title
-    end
+    (data.page.title.blank? ? '' : "#{data.page.title} - ") + data.config.title
   end
 
   # Creates a description meta tag based on the presence of a description value within the page frontmatter
