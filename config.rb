@@ -24,22 +24,16 @@
 #   page "/admin/*"
 # end
 
-###
-# Helpers
-###
-
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
-
-
-configure :development do
-  activate :livereload          # Reload the browser automatically whenever files change
-end
-
 
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
+
+configure :development do
+  activate :livereload          # Reload the browser automatically whenever files change
+end
 
 configure :build do
   activate :minify_css
