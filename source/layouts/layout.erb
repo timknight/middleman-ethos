@@ -17,36 +17,20 @@
   <![endif]-->
 </head>
 <body class="<%= page_classes %>">
-<!-- 
-  Using container-fluid in case you'd like to style the background of the 
-  container that is full-width containing an element. Just as necessary
-  to your project. 
--->
-  
-  <div class="container-fluid">
+  <div class="container">
     <header>
-      <div class="container">
-        <%= link_to_if(!current?("home"),image_tag(lorem.image('150x75', :text => ' ')), "/") %>
-        <%= partial "layouts/shared/header-nav" %>
-        <%= partial "layouts/shared/primary-nav" %>
-      </div>
+      <%= link_to_if(!current?("home"),image_tag(lorem.image('150x75', :text => ' ')), "/") %>
+      <%= partial "layouts/shared/header-nav" %>
+      <%= partial "layouts/shared/primary-nav" %>
     </header>
-  </div>
 
-  <div class="container-fluid">
-    <div class="container">
-      <%= yield :layout %>
-    </div>
-  </div>
-
-  <div class="container-fluid">
+    <%= yield :layout %>
+  
     <footer>
-      <div class="container">
-        <hr>
-        <%= partial "layouts/shared/footer-nav" %>
-        <p class="text-footer">&copy;<%= Date.today.year %>. <%= data.config.title %>. All rights reserved.</p>
-        <p class="text-footer">Powered by <%= link_to "Ethos", "https://github.com/timknight/middleman-ethos" %></p>
-      </div>
+      <hr>
+      <%= partial "layouts/shared/footer-nav" %>
+      <p class="text-footer">&copy;<%= Date.today.year %>. <%= data.config.title %>. All rights reserved.</p>
+      <p class="text-footer">Powered by <%= link_to "Ethos", "https://github.com/timknight/middleman-ethos" %></p>
     </footer>
   </div>
 
