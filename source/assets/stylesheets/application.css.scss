@@ -1,7 +1,11 @@
 // TODO: Refactor the Sass to break up into sections and modules
 
-
 // Base
 // ----
+body { padding-top: 8px; }
 .nav-footer ul { margin-bottom: 0; }
 .text-footer   { font-size: 90%; }
+
+// Navigation
+// ----------
+.navbar-primary { margin-top: 8px; }
