@@ -23,3 +23,7 @@ description:
 * `nav`: used to determine the current page's primary navigation state
 * `subnav`: used to determine the current page's secondary navigation state
 * `description`: used to create a description meta tag for that page
+
+## Pesticide Support
+
+[Pesticide](http://pesticide.io/) has been built into the CSS. To turn on Pesticide debugging edit `/utilities/_global.css` and change `$pesticide-debug` to true.
