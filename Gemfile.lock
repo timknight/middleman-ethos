@@ -12,10 +12,16 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.1)
-    compass (0.12.7)
+    compass (1.0.0.alpha.21)
       chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.2.19)
+      compass-core (~> 1.0.0.alpha.21)
+      compass-import-once (~> 1.0.4)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+      sass (>= 3.3.0, < 3.5)
+    compass-core (1.0.0.alpha.21)
+      multi_json (~> 1.0)
+      sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.4)
       sass (>= 3.2, < 3.5)
     em-websocket (0.5.1)
@@ -25,7 +31,6 @@ GEM
     eventmachine (1.0.3)
     execjs (2.2.1)
     ffi (1.9.3)
-    fssm (0.2.10)
     haml (4.0.5)
       tilt
     hike (1.2.3)
@@ -90,7 +95,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.3)
       ffi (>= 0.5.0)
-    sass (3.2.19)
+    sass (3.3.10)
     sprockets (2.12.1)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -115,6 +120,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  compass (~> 1.0.0.alpha.21)
   middleman (~> 3.3.3)
   middleman-livereload (~> 3.1.0)
   tzinfo-data
