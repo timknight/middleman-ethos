@@ -7,7 +7,6 @@ label.error {
 
 label.error.valid { display: none !important; }         // Remove the margin when the field validates
 .controls label   { font-weight: normal; }              // Unbold labels that contain requirement errors
-.required-text    { color: #B94A48; }                   // Mark asterisk and notice red for required fields
 
 input[type=file] {                                      // Cleans up misalignment created by Bootstrap
   line-height: 1em;
