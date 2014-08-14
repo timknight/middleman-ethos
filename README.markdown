@@ -4,7 +4,7 @@ A  prototyping framework for Middleman in early development. Currently using Boo
 
 ## Project Configuration
 
-Project information is found in /data/config.yml
+Project information is found in /data/config.yml. The YAML file supports multi-environment configuration by adding the values within keys for "development" and "build". A custom site helper is available called `project_setting` which takes the YAML key value as either a string or a symbol: `project_setting(:title)` or `project_setting("title")`.
 
 ## Page Configuration
 

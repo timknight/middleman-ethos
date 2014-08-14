@@ -11,7 +11,7 @@ module SiteHelpers
   end
 
   def page_title
-    (data.page.title.blank? ? '' : "#{data.page.title} - ") + project_setting("title")
+    (data.page.title.blank? ? '' : "#{data.page.title} - ") + project_setting(:title)
   end
 
   # Creates a description meta tag based on the presence of a description value within the page frontmatter
