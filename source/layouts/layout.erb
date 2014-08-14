@@ -6,6 +6,7 @@
   <title><%= page_title %></title>
   <%= page_description %>
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/yeti/bootstrap.min.css" rel="stylesheet">
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
   <%= stylesheet_link_tag 'application' %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -29,7 +30,7 @@
     <footer>
       <hr>
       <%= partial "layouts/shared/footer-nav" %>
-      <p class="text-footer">&copy;<%= Date.today.year %>. <%= data.config.title %>. All rights reserved.</p>
+      <p class="text-footer">&copy;<%= Date.today.year %>. <%= project_setting("title") %>. All rights reserved.</p>
       <p class="text-footer">Powered by <%= link_to "Ethos", "https://github.com/timknight/middleman-ethos" %></p>
     </footer>
   </div>

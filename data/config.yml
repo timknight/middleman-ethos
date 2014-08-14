@@ -1,3 +1,9 @@
-# Project configuration
+# Project configuration 
 
-title: "[Company Name]"
+development:
+  title:   "[Company Name]"
+  address: "http://localhost:4567/"
+
+build:
+  title:   "[Company Name]"
+  address: "http://localhost:4567/"
