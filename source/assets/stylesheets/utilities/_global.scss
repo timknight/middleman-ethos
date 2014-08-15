@@ -8,3 +8,10 @@
  * @type Bool
  */
 $pesticide-debug: false;
+
+/**
+ * Shows a line at 768px down on the page to define a potential "fold" goal.
+ *
+ * @type Bool
+ */
+$show-fold: false;
