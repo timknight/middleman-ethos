@@ -1,6 +1,24 @@
-// The breakpoint mixin uses the same attribute names as Bootstrap's responsive classes
-// to make using the feature as easy to remember as possible. Passing in a responsive class
-// will add a media query and output the passed in block.
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+/**
+ * Media Query Breakpoint
+ * The breakpoint mixin uses the same attribute names as Bootstrap's responsive classes
+ * to make using the feature as easy to remember as possible. Passing in a responsive class
+ * will add a media query and output the passed in block.
+ *
+ * @param {Number | String} $min (0) - Sets the min-width or uses preset: xs, sm, md, lg
+ * @param {Number} $max (0) - Sets the max-width
+ *
+ * @example
+ * .foo { @include breakpoint(sm) {...}}
+ * 
+ * @example 
+ * .foo { @include breakpoint($max: 800px) {...}} 
+ * 
+ * @todo Refactor out the magic. Create a new parameter for breakpoint instead of using min.
+ */
 @mixin breakpoint($min: 0, $max: 0) {
   $type: type-of($min);
   
@@ -33,5 +51,26 @@
     @else if $min != 0 and $max == 0 { $query: "(min-width: #{$min})"; } // set just min
     @else if $min == 0 and $max != 0 { $query: "(max-width: #{$max})"; } // set just max
     @media #{$query} { @content; }
+  }
+}
+
+
+/**
+ * Input Placeholder 
+ * Styles the placeholder for an input field based on a based in block.
+ * 
+ * @example 
+ * input.foo { 
+ *   @include placeholder {
+ *     color: #ccc;
+ *   } 
+ * } 
+ */
+@mixin placeholder {
+  $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
   }
 }

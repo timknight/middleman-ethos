@@ -27,3 +27,6 @@ description:
 ## Pesticide Support
 
 [Pesticide](http://pesticide.io/) has been built into the CSS. To turn on Pesticide debugging edit `/utilities/_global.css` and change `$pesticide-debug` to true.
+
+## SassDoc Support
+Generate documentation with SassDoc using `sassdoc source/assets/stylesheets/ docs/ -c package.json`. Precompiled documentation can be found within the `docs` folder.

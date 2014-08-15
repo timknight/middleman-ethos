@@ -29,7 +29,7 @@ module SiteHelpers
   end
 
   def project_setting(key)
-    data.config[config[:environment]]["#{key}"]
+    data.config[config[:environment]][key]
   end
 
 end
