@@ -42,7 +42,7 @@ module SiteHelpers
         to      = opts[:to] || project_setting(:mail_to)
         from    = project_setting(:mail_from)
         subject = opts[:subject] || "(No Subject)"
-        content = File.read(File.join("#{root}/mailers/#{template}.html"))
+        content = File.read(File.join(root, "mailers", "#{template}.html"))
         host    = project_setting(:mail_host)
         port    = project_setting(:mail_port)
         message = build_message(to, from, subject, content)
