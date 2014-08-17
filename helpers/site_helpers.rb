@@ -1,4 +1,5 @@
 module SiteHelpers
+  require 'net/smtp'
 
   # Used to check if a link goes to the current page by passing in a nav and 
   # subnav string to check against the frontmatter within data.page.
@@ -14,7 +15,7 @@ module SiteHelpers
     (data.page.title.blank? ? '' : "#{data.page.title} - ") + project_setting(:title)
   end
 
-  # Creates a description meta tag based on the presence of a description value within the page frontmatter
+  # Creates a description meta tag based on the presence of a description value within the page frontmatter.
   def page_description
     content_tag :meta, "", {name: "description", value: data.page.description } if data.page.description
   end
@@ -28,8 +29,40 @@ module SiteHelpers
     end
   end
 
+  # Calls appropriate key in /data/config.yml depending on current environment.
   def project_setting(key)
     data.config[config[:environment]][key]
+  end
+
+
+  # Send prototyped transactional emails.
+  def send_mail(template, opts={})
+    if development?
+      begin
+        to      = opts[:to] || project_setting(:mail_to)
+        from    = project_setting(:mail_from)
+        subject = opts[:subject] || "(No Subject)"
+        content = File.read(File.join("#{root}/mailers/#{template}.html"))
+        host    = project_setting(:mail_host)
+        port    = project_setting(:mail_port)
+        message = build_message(to, from, subject, content)
+
+        # If you need to customize this further you can use the following into the start method
+        # (host, port, domain, username, password :plain)
+        Net::SMTP.start(host, port) do |smtp|
+          smtp.sendmail(message, from, [to])
+        end
+      rescue
+        false
+      end
+    end
+  end
+
+  private
+
+  # Returns a string to send as the message
+  def build_message(to, from, subject, body)
+    "From: #{from}\nTo: #{to}\nContent-type: text/html\nSubject: #{subject}\n\n#{body}"
   end
 
 end
