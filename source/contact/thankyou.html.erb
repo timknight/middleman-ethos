@@ -3,7 +3,7 @@ title: Thank You!
 nav: contact
 ---
 
-<% if send_mail("contact-thankyou", to: "tknight@gravityfree.com, welcome@test.com") %>
+<% if send_mail("contact-thankyou") %>
 
   <div class="jumbotron">
     <h1>Thank You!</h1>
@@ -16,7 +16,7 @@ nav: contact
 
   <div class="jumbotron">
     <h1>Error Sending Email</h1>
-    <p>If you're wanting to send test emails make sure you have mailcatcher installed and that it is running. Next make sure you're template is located in /mailers/ and <kbd>/data/config.yml</kbd> has been configured properly.</p>
+    <p>If you're wanting to send test emails make sure you have mailcatcher installed with <kbd>gem install mailcatcher</kbd> and that it is running. Next make sure you're template is located in /mailers/ and <kbd>/data/config.yml</kbd> has been configured properly.</p>
   </div>
   
 <% end %>
