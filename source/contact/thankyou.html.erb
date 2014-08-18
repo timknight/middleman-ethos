@@ -3,7 +3,7 @@ title: Thank You!
 nav: contact
 ---
 
-<% if send_mail("contact-thankyou") %>
+<% if send_mail("contact-thankyou", subject: "Thank You for Your Submission") %>
 
   <div class="jumbotron">
     <h1>Thank You!</h1>

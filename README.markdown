@@ -26,7 +26,7 @@ description:
 
 ## Mailcatcher Support and Email Prototyping
 
-Support for Mailcatcher is built in for the development mode only. This allows for prototyping transactional emails. To get started, make sure to install the mailcatcher gem and that it is running.
+Support for [Mailcatcher](http://mailcatcher.me/) is built in for the development mode only. This allows for prototyping transactional emails. To get started, make sure to install the mailcatcher gem and that it is running.
 
 `gem install mailcatcher`
 
