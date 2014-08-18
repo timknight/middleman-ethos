@@ -36,13 +36,12 @@
 </div>
 
 <div class="sidebar__body">
-  <ul class="list-unstyled">
   
   
 
     
     
-      <li class="sidebar__item  sidebar__item--heading"><a href="#undefined">General</a></li>
+      <p class="sidebar__item  sidebar__item--heading"><a href="#undefined">General</a></p>
 
       
       
@@ -52,56 +51,62 @@
 
         
         
-          <li class="sidebar__item  sidebar__item--sub-heading"><a href="#undefined-variable">variables</a></li>
+          <p class="sidebar__item  sidebar__item--sub-heading"><a href="#undefined-mixin">mixins</a></p>
 
           
           
-            <li class="sidebar__item  sassdoc__item" data-name="pesticide-debug" data-type="variable">
-              <a href="#variable-pesticide-debug">pesticide-debug
-              
-              
-            </a>
-          </li>
-          
-            <li class="sidebar__item  sassdoc__item" data-name="show-fold" data-type="variable">
-              <a href="#variable-show-fold">show-fold
-              
-              
-            </a>
-          </li>
-          
-        
-      
-
-        
-        
-
-        
-        
-          <li class="sidebar__item  sidebar__item--sub-heading"><a href="#undefined-mixin">mixins</a></li>
-
-          
-          
+            <ul class="list-unstyled">
             <li class="sidebar__item  sassdoc__item" data-name="breakpoint" data-type="mixin">
               <a href="#mixin-breakpoint">breakpoint
               
               
-            </a>
-          </li>
+              </a>
+            </li>
+            
           
+            
             <li class="sidebar__item  sassdoc__item" data-name="placeholder" data-type="mixin">
               <a href="#mixin-placeholder">placeholder
               
               
-            </a>
-          </li>
+              </a>
+            </li>
+            </ul>
+          
+        
+      
+
+        
+        
+
+        
+        
+          <p class="sidebar__item  sidebar__item--sub-heading"><a href="#undefined-variable">variables</a></p>
+
+          
+          
+            <ul class="list-unstyled">
+            <li class="sidebar__item  sassdoc__item" data-name="pesticide-debug" data-type="variable">
+              <a href="#variable-pesticide-debug">pesticide-debug
+              
+              
+              </a>
+            </li>
+            
+          
+            
+            <li class="sidebar__item  sassdoc__item" data-name="show-fold" data-type="variable">
+              <a href="#variable-show-fold">show-fold
+              
+              
+              </a>
+            </li>
+            </ul>
           
         
       
     
-
   
-  </ul>
 </div>
 
 
@@ -143,6 +148,345 @@
         <h1 class="main__heading" id="undefined">General</h1>
 
         
+        
+
+          
+          
+
+          
+          
+            <section class="main__sub-section" id="undefined-mixin">
+              <h2 class="main__heading--secondary">mixins</h2>
+
+              
+              
+                
+                <section class="main__item  item" id="mixin-breakpoint">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-breakpoint">breakpoint</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--expanded  language-scss"><code>@mixin breakpoint($min: 0, $max: 0) { 
+  $type: type-of($min);
+  
+  @if $type == string {
+    @if $min == xs { 
+      @media (max-width: 767px) { @content; }       // Mobile Devices
+    }
+    
+    @else if $min == sm {
+      @media (min-width: 768px) { @content; }       // Tablet Devices
+    }
+    
+    @else if $min == md {
+      @media (min-width: 992px) { @content; }       // Desktops
+    }
+    
+    @else if $min == lg {
+      @media (min-width: 1200px) { @content; }      // Widescreen Desktops
+    }
+  
+    // Otherwise pass a warning to the compiler as to the appropriate options
+    @else {
+      @warn &quot;The breakpoint mixin supports the following attributes: xs, sm, md, lg&quot;;
+    }
+  }
+  @else if $type == number {
+    // Allow for custom parameters for min and max size
+    $query: &quot;all&quot; !default;
+    @if      $min != 0 and $max != 0 { $query: &quot;(min-width: #{$min}) and (max-width: #{$max})&quot;; } // set both min and max
+    @else if $min != 0 and $max == 0 { $query: &quot;(min-width: #{$min})&quot;; } // set just min
+    @else if $min == 0 and $max != 0 { $query: &quot;(max-width: #{$max})&quot;; } // set just max
+    @media #{$query} { @content; }
+  }
+ }</code></pre>
+
+  <pre class="item__code  item__code--collapsed  language-scss"><code>@mixin breakpoint($min: 0, $max: 0) { ... }</code></pre>
+
+  
+</div>
+
+
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Media Query Breakpoint
+The breakpoint mixin uses the same attribute names as Bootstrap&#39;s responsive classes
+to make using the feature as easy to remember as possible. Passing in a responsive class
+will add a media query and output the passed in block.</p>
+</div>
+
+
+
+  <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <table class="item__parameters">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
+        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$min</code></th>
+          <td data-label="desc"><p>Sets the min-width or uses preset: xs, sm, md, lg</p>
+</td>
+          <td data-label="type">
+          
+            Number, String
+          
+          </td>
+          <td data-label="default">
+          
+            <code>0</code>
+          
+          </td>
+        </tr>
+      
+        <tr class="item__parameter">
+          <th scope="row" data-label="name"><code>$max</code></th>
+          <td data-label="desc"><p>Sets the max-width</p>
+</td>
+          <td data-label="type">
+          
+            Number
+          
+          </td>
+          <td data-label="default">
+          
+            <code>0</code>
+          
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+
+
+
+
+  
+
+
+  
+
+
+  
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss">.foo { @include breakpoint(sm) {...}}</code></pre>
+  </div>
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss">.foo { @include breakpoint($max: 800px) {...}} </code></pre>
+  </div>
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+
+  
+
+  
+
+
+
+
+</section>
+              
+                
+                <section class="main__item  item" id="mixin-placeholder">
+
+<h3 class="item__heading">
+  
+
+  <a class="item__name" href="#mixin-placeholder">placeholder</a>
+
+  
+
+  
+</h3>
+
+
+
+
+
+
+
+
+
+<div class="relative  clear  code--collapsed">
+  <pre class="item__code  item__code--expanded  language-scss"><code>@mixin placeholder() { 
+  $placeholders: &quot;:-webkit-input&quot; &quot;:-moz&quot; &quot;-moz&quot; &quot;-ms-input&quot;;
+  @each $placeholder in $placeholders {
+    &amp;:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+ }</code></pre>
+
+  <pre class="item__code  item__code--collapsed  language-scss"><code>@mixin placeholder() { ... }</code></pre>
+
+  
+</div>
+
+
+
+  
+  <h3 class="item__sub-heading">Description</h3>
+
+  <div class="item__description"><p>Input Placeholder 
+Styles the placeholder for an input field based on a based in block.</p>
+</div>
+
+
+
+  <h3 class="item__sub-heading">Parameters</h3>
+
+
+
+  <p>None.</p>
+
+
+
+
+  
+
+
+  
+
+
+  
+  <h3 class="item__sub-heading">Example</h3>
+
+  
+  <div class="item__example  example">
+    
+    <pre class="example__code"><code class="language-scss">input.foo { 
+  @include placeholder {
+    color: #ccc;
+  } 
+}</code></pre>
+  </div>
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+
+
+  
+
+  
+
+
+
+
+</section>
+              
+            </section>
+          
         
 
           
@@ -286,286 +630,6 @@
 
 
   
-
-  
-
-
-
-
-
-
-  
-
-
-  
-
-
-
-
-
-  
-
-
-  
-
-  
-
-
-
-
-</section>
-              
-            </section>
-          
-        
-
-          
-          
-
-          
-          
-            <section class="main__sub-section" id="undefined-mixin">
-              <h2 class="main__heading--secondary">mixins</h2>
-
-              
-              
-                
-                <section class="main__item  item" id="mixin-breakpoint">
-
-<h3 class="item__heading">
-  
-
-  <a class="item__name" href="#mixin-breakpoint">breakpoint</a>
-
-  
-
-  
-</h3>
-
-
-
-
-
-
-
-
-  
-
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-    
-  
-
-  
-
-  
-    
-  
-
-
-<div class="relative  clear">
-  <pre class="item__code  language-scss"><code>@mixin breakpoint($min: 0, $max: 0) { ... }</code></pre>
-
-  
-</div>
-
-
-
-  
-  <h3 class="item__sub-heading">Description</h3>
-
-  <div class="item__description"><p>Media Query Breakpoint
-The breakpoint mixin uses the same attribute names as Bootstrap&#39;s responsive classes
-to make using the feature as easy to remember as possible. Passing in a responsive class
-will add a media query and output the passed in block.</p>
-</div>
-
-
-
-  <h3 class="item__sub-heading">Parameters</h3>
-
-
-
-  <table class="item__parameters">
-    <thead>
-      <tr>
-        <th scope="col"><span class="visually-hidden"> parameter </span>Name</th>
-        <th scope="col"><span class="visually-hidden"> parameter </span>Description</th>
-        <th scope="col"><span class="visually-hidden"> parameter </span>Type</th>
-        <th scope="col"><span class="visually-hidden"> parameter </span>Default value</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-        <tr class="item__parameter">
-          <th scope="row" data-label="name"><code>$min</code></th>
-          <td data-label="desc"><p>Sets the min-width or uses preset: xs, sm, md, lg</p>
-</td>
-          <td data-label="type">
-          
-            Number, String
-          
-          </td>
-          <td data-label="default">
-          
-            <code>0</code>
-          
-          </td>
-        </tr>
-      
-        <tr class="item__parameter">
-          <th scope="row" data-label="name"><code>$max</code></th>
-          <td data-label="desc"><p>Sets the max-width</p>
-</td>
-          <td data-label="type">
-          
-            Number
-          
-          </td>
-          <td data-label="default">
-          
-            <code>0</code>
-          
-          </td>
-        </tr>
-      
-    </tbody>
-  </table>
-
-
-
-
-  
-
-
-  
-  <h3 class="item__sub-heading">Example</h3>
-
-  
-    <pre class="item__example"><code class="language-scss">.foo { @include breakpoint(sm) {...}}</code></pre>
-  
-    <pre class="item__example"><code class="language-scss">.foo { @include breakpoint($max: 800px) {...}} </code></pre>
-  
-
-
-  
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-  
-
-
-
-
-
-  
-
-
-  
-
-  
-
-
-
-
-</section>
-              
-                
-                <section class="main__item  item" id="mixin-placeholder">
-
-<h3 class="item__heading">
-  
-
-  <a class="item__name" href="#mixin-placeholder">placeholder</a>
-
-  
-
-  
-</h3>
-
-
-
-
-
-
-
-
-
-<div class="relative  clear">
-  <pre class="item__code  language-scss"><code>@mixin placeholder() { ... }</code></pre>
-
-  
-</div>
-
-
-
-  
-  <h3 class="item__sub-heading">Description</h3>
-
-  <div class="item__description"><p>Input Placeholder 
-Styles the placeholder for an input field based on a based in block.</p>
-</div>
-
-
-
-  <h3 class="item__sub-heading">Parameters</h3>
-
-
-
-  <p>None.</p>
-
-
-
-
-  
-
-
-  
-  <h3 class="item__sub-heading">Example</h3>
-
-  
-    <pre class="item__example"><code class="language-scss">input.foo { 
-  @include placeholder {
-    color: #ccc;
-  } 
-}</code></pre>
-  
-
-
-  
-
-
-  
-
-
-
-
 
   
 
