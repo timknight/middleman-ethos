@@ -9,6 +9,7 @@ A  prototyping framework for [Middleman](http://middlemanapp.com/) in active dev
 * Environment-based project configuration 
 * SassDoc support
 * Prototype transactional emails with `send_email()` helper and mailcatcher
+* Built-in JavaScript form validation by adding the class `validate` to your form and adding the class `required` to each required field. Support for `type=email` is built-in thanks to the jQuery Validation Plugin
 
 ## Installation
 
