@@ -33,7 +33,7 @@ Support for Mailcatcher is built in for the development mode only. This allows f
 * See `/contact/thankyou.html.erb` for an example of using the `send_email()` helper.
 * `send_email([template], [subject: Subject Line (optional)], [to: to@email.com (optional)]`
 * Host configuration, from, and to addresses are configured in the `/data/config.yml` file.
-* Mailer templates should be located in `/mailers/` are do not support ERB.
+* Mailer templates should be located in `/mailers/` and do not support ERB.
 
 ## Pesticide Support
 
