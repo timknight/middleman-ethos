@@ -34,7 +34,6 @@ module SiteHelpers
     data.config[config[:environment]][key]
   end
 
-
   # Send prototyped transactional emails.
   def send_mail(template, opts={})
     if development?
@@ -60,7 +59,7 @@ module SiteHelpers
 
   private
 
-  # Returns a string to send as the message
+  # Returns a string to send as the mail message
   def build_message(to, from, subject, body)
     "From: #{from}\nTo: #{to}\nContent-type: text/html\nSubject: #{subject}\n\n#{body}"
   end

@@ -24,6 +24,17 @@ description:
 * `subnav`: used to determine the current page's secondary navigation state
 * `description`: used to create a description meta tag for that page
 
+## Mailcatcher Support and Email Prototyping
+
+Support for Mailcatcher is built in for the development mode only. This allows for prototyping transactional emails. To get started, make sure to install the mailcatcher gem and that it is running.
+
+`gem install mailcatcher`
+
+* See `/contact/thankyou.html.erb` for an example of using the `send_email()` helper.
+* `send_email([template], [subject: Subject Line (optional)], [to: to@email.com )optional])`
+* Host configuration, from, and to addresses are configured in the `/data/config.yml` file.
+* Mailer templates should be located in `/mailers/` are do not support ERB.
+
 ## Pesticide Support
 
 [Pesticide](http://pesticide.io/) has been built into the CSS. To turn on Pesticide debugging edit `/utilities/_global.css` and change `$pesticide-debug` to true.
