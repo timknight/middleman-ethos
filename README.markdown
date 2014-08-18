@@ -58,4 +58,4 @@ Generate documentation with SassDoc using `sassdoc source/assets/stylesheets/ do
 
 ## Planned To-Do
 
-Currently I'm using Bootstrap here, but my plan is to move further away from Bootstrap while creating more of a OOCSS model and using Neat or Susy for the grid system. Stay too for continued updates.
+Currently I'm using Bootstrap here, but my plan is to move further away from Bootstrap while creating more of a OOCSS model and using Neat or Susy for the grid system. Stay tuned for continued updates.
