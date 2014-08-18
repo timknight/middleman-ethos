@@ -1,6 +1,14 @@
 # Middleman Ethos
 
-A  prototyping framework for Middleman in early development. Currently using Bootstrap 3 and jQuery, but this might change.
+A  prototyping framework for Middleman in active development. Currently using Bootstrap 3 and jQuery, but this will likely change.
+
+## Key Features
+
+* Basic homepage template and navigation system
+* Contact Us form template with thank you page
+* Environment-based project configuration 
+* SassDoc support
+* Prototype transactional emails with `send_email()` helper and mailcatcher
 
 ## Installation
 
