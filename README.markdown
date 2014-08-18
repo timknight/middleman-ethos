@@ -2,6 +2,20 @@
 
 A  prototyping framework for Middleman in early development. Currently using Bootstrap 3 and jQuery, but this might change.
 
+## Installation
+
+This is a middleman template that can be installed in your middleman project templates directory. First install middleman as a Ruby gem.
+
+`gem install middleman`
+
+Then clone the repository into your templates folder.
+
+`git clone git@github.com:timknight/middleman-ethos.git ~/.middleman/middleman-ethos`
+
+Create a new project using Ethos
+
+`middleman init [PROJECTNAME] -T middleman-ethos`
+
 ## Project Configuration
 
 Project information is found in /data/config.yml. The YAML file supports multi-environment configuration by adding the values within keys for "development" and "build". A custom site helper is available called `project_setting` which takes the YAML key value as either a string or a symbol: `project_setting(:title)` or `project_setting("title")`.
