@@ -1,6 +1,6 @@
 # Middleman Ethos
 
-A  prototyping framework for Middleman in active development. Currently using Bootstrap 3 and jQuery, but this will likely change.
+A  prototyping framework for [Middleman](http://middlemanapp.com/) in active development. Currently using Bootstrap 3 and jQuery, but this will likely change.
 
 ## Key Features
 
