@@ -55,3 +55,7 @@ Support for [Mailcatcher](http://mailcatcher.me/) is built in for the developmen
 
 ## SassDoc Support
 Generate documentation with SassDoc using `sassdoc source/assets/stylesheets/ docs/ -c package.json`. Precompiled documentation can be found within the `docs` folder. Alternatively you can generate using `rake sassdoc`.
+
+## Planned To-Do
+
+Currently I'm using Bootstrap here, but my plan is to move further away from Bootstrap while creating more of a OOCSS model and using Neat or Susy for the grid system. Stay too for continued updates.
