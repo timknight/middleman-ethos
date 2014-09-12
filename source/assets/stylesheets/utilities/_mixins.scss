@@ -8,63 +8,38 @@
  * to make using the feature as easy to remember as possible. Passing in a responsive class
  * will add a media query and output the passed in block.
  *
- * @param {Number | String} $min (0) - Sets the min-width or uses preset: xs, sm, md, lg
- * @param {Number} $max (0) - Sets the max-width
+ * @param {Map} $map - A map variable that contains an min and max key value pair.
  *
  * @example
- * .foo { @include breakpoint(sm) {...}}
- * 
- * @example 
- * .foo { @include breakpoint($max: 800px) {...}} 
- * 
- * @todo Refactor out the magic. Create a new parameter for breakpoint instead of using min.
+ * .foo { @include breakpoint($sm) {...}}
+ *
  */
-@mixin breakpoint($min: 0, $max: 0) {
-  $type: type-of($min);
-  
-  @if $type == string {
-    @if $min == xs { 
-      @media (max-width: 767px) { @content; }       // Mobile Devices
-    }
-    
-    @else if $min == sm {
-      @media (min-width: 768px) { @content; }       // Tablet Devices
-    }
-    
-    @else if $min == md {
-      @media (min-width: 992px) { @content; }       // Desktops
-    }
-    
-    @else if $min == lg {
-      @media (min-width: 1200px) { @content; }      // Widescreen Desktops
-    }
-  
-    // Otherwise pass a warning to the compiler as to the appropriate options
-    @else {
-      @warn "The breakpoint mixin supports the following attributes: xs, sm, md, lg";
-    }
-  }
-  @else if $type == number {
-    // Allow for custom parameters for min and max size
-    $query: "all" !default;
-    @if      $min != 0 and $max != 0 { $query: "(min-width: #{$min}) and (max-width: #{$max})"; } // set both min and max
-    @else if $min != 0 and $max == 0 { $query: "(min-width: #{$min})"; } // set just min
-    @else if $min == 0 and $max != 0 { $query: "(max-width: #{$max})"; } // set just max
-    @media #{$query} { @content; }
-  }
+$xs: ( max:  767px );
+$sm: ( min:  768px );
+$md: ( min:  992px );
+$lg: ( min: 1200px );
+$sm-only: ( min: map-get($sm, min), max: map-get($md, min) - 1 );
+$md-only: ( min: map-get($md, min), max: map-get($lg, min) - 1 );
+
+@mixin breakpoint($map) {
+  $query: "";
+  @if map-has-key($map, min) { $query: append($query, "(min-width: #{map-get($map, min)})") }
+  @if map-has-key($map, min) and map-has-key($map, max) { $query: append($query, "and") }
+  @if map-has-key($map, max) { $query: append($query, "(max-width: #{map-get($map, max)})") }
+  @media #{$query} { @content; }
 }
 
 
 /**
- * Input Placeholder 
+ * Input Placeholder
  * Styles the placeholder for an input field based on a based in block.
- * 
- * @example 
- * input.foo { 
+ *
+ * @example
+ * input.foo {
  *   @include placeholder {
  *     color: #ccc;
- *   } 
- * } 
+ *   }
+ * }
  */
 @mixin placeholder {
   $placeholders: ":-webkit-input" ":-moz" "-moz" "-ms-input";
