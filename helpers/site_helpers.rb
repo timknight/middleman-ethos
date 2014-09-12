@@ -1,7 +1,7 @@
 module SiteHelpers
   require 'net/smtp'
 
-  # Used to check if a link goes to the current page by passing in a nav and 
+  # Used to check if a link goes to the current page by passing in a nav and
   # subnav string to check against the frontmatter within data.page.
   def current?(nav, subnav = "")
     if subnav.empty?
