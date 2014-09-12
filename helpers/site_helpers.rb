@@ -54,6 +54,8 @@ module SiteHelpers
       rescue
         false
       end
+    else
+      true
     end
   end
 
