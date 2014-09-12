@@ -5,7 +5,7 @@ source 'http://rubygems.org'
 gem "middleman", "~>3.3.3"
 
 # Use alpha version of Compass to support Sass 3.3+
-gem 'compass', '~> 1.0.0.alpha.21'
+gem 'compass', '~> 1.0.0'
 
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"
