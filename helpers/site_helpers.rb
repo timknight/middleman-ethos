@@ -20,6 +20,11 @@ module SiteHelpers
     content_tag :meta, "", {name: "description", value: data.page.description } if data.page.description
   end
 
+  # Generates character length lorem ipsum strings
+  def greek(chars)
+    Lorem::Base.new('chars', chars).output
+  end
+
   # Creates a link only if the condition returns true, otherwise returns only the element.
   def link_to_if(condition, element, link)
     if condition

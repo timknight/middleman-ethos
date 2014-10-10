@@ -47,6 +47,7 @@ GEM
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    lorem (0.1.2)
     middleman (3.3.5)
       coffee-script (~> 2.2)
       compass (>= 0.12.4)
@@ -124,6 +125,7 @@ PLATFORMS
 
 DEPENDENCIES
   compass (~> 1.0.0)
+  lorem
   middleman (~> 3.3.3)
   middleman-livereload (~> 3.1.0)
   tzinfo-data
