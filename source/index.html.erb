@@ -5,19 +5,23 @@ subnav:
 description: This is a page description.
 ---
 
-<div class="jumbotron">
-  <h1>Welcome Prototyper</h1>
-  <p>Donec id elit non mi porta gravida at eget metus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu leo quam.</p>
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>Welcome Prototyper</h1>
+    <p><%= greek 250 %></p>
+  </div>
 </div>
 
-<p>Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+<div class="container">
+  <p><%= greek 500 %></p>
 
-<div class="row">
-  <% 3.times do %>
-    <div class="col-md-4">
-      <h4>Section Title</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nemo harum aut recusandae commodi iste id laborum, modi temporibus quo, ea repellendus porro ipsam ratione blanditiis labore.</p>
-      <p><a href="" class="btn btn-default">Read More</a></p>
-    </div>
-  <% end %>
+  <div class="row">
+    <% 3.times do %>
+      <div class="col-md-4">
+        <h4>Section Title</h4>
+        <p><%= greek 200 %></p>
+        <p><a href="" class="btn btn-default">Read More</a></p>
+      </div>
+    <% end %>
+  </div>
 </div>
