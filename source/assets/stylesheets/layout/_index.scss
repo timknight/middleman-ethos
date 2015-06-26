@@ -1,6 +1,5 @@
-body { padding-top: 8px; }
-.text-footer { font-size: 90%; }
-
+@import 'base';
+@import 'footer';
 
 // @todo: This really shouldn't be in this file.
 @if $show-fold == true {
